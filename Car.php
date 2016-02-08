@@ -62,7 +62,6 @@ $lexus = new Car("2013 Lexus RX 350", 44700, 20000);
 $mercedes = new Car("Mercedes Benz CLS550", 39900, 37979);
 $chevy = new Car("Chevy");
 $geo = new Car("Geo", 2000, 230000, "http://indiabright.com/wp-content/uploads/2015/12/c5.jpg");
-// $geo->setImageUrl("http://indiabright.com/wp-content/uploads/2015/12/c5.jpg");
 
 $cars = array($porsche, $ford, $lexus, $mercedes, $chevy, $geo);
 
