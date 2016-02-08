@@ -2,13 +2,9 @@
 class Car
 {
     private $make_model;
-    public $price;
-    public $miles;
+    private $price;
+    private $miles;
 
-    function worthBuying($max_price)
-    {
-        return $this->price < ($max_price + 100);
-    }
 
     function __construct ($make_model,$price=100000,$miles=0)
     {
@@ -16,7 +12,7 @@ class Car
         $this->price = $price;
         $this->miles = $miles;
     }
-
+    // Getter/Setter for make_model
     function setMakeModel($new_make_model)
     {
         $this->make_model = $new_make_model;
@@ -25,7 +21,28 @@ class Car
     {
         return $this->make_model;
     }
-
+    // Getter/Setter for price
+    function setPrice($price)
+    {
+        $this->price = $price;
+    }
+    function getPrice()
+    {
+        return $this->price;
+    }
+    // Getter/Setter for miles
+    function setMiles($miles)
+    {
+        $this->miles = $miles;
+    }
+    function getMiles()
+    {
+        return $this->miles;
+    }
+    function worthBuying($max_price)
+    {
+      return $this->price < ($max_price + 100);
+    }
 }
 
 $porsche = new Car("2014 Porsche 911", 114991, 7854);
@@ -57,10 +74,12 @@ foreach ($cars as $car) {
         <?php
             foreach ($cars_matching_search as $car) {
                 $make_model = $car->getMakeModel();
+                $price = $car->getPrice();
+                $miles = $car->getMiles();
                 echo "<li> $make_model </li>";
                 echo "<ul>";
-                    echo "<li> $$car->price </li>";
-                    echo "<li> Miles: $car->miles </li>";
+                    echo "<li> $$price </li>";
+                    echo "<li> Miles: $miles </li>";
                 echo "</ul>";
             }
         ?>
