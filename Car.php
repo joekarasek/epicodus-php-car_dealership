@@ -4,13 +4,15 @@ class Car
     private $make_model;
     private $price;
     private $miles;
+    private $image_url;
 
 
-    function __construct ($make_model,$price=100000,$miles=0)
+    function __construct ($make_model,$price=100000,$miles=0,$image_url="http://lorempixel.com/400/200/")
     {
         $this->make_model = $make_model;
         $this->price = $price;
         $this->miles = $miles;
+        $this->image_url = $image_url;
     }
     // Getter/Setter for make_model
     function setMakeModel($new_make_model)
@@ -39,6 +41,15 @@ class Car
     {
         return $this->miles;
     }
+    // Getter/Setter for image_url
+    function setImageUrl($image_url)
+    {
+        $this->image_url = $image_url;
+    }
+    function getImageUrl()
+    {
+        return $this->image_url;
+    }
     function worthBuying($max_price)
     {
       return $this->price < ($max_price + 100);
@@ -51,6 +62,7 @@ $lexus = new Car("2013 Lexus RX 350", 44700, 20000);
 $mercedes = new Car("Mercedes Benz CLS550", 39900, 37979);
 $chevy = new Car("Chevy");
 $geo = new Car("Geo", 2000);
+$geo->setImageUrl("http://indiabright.com/wp-content/uploads/2015/12/c5.jpg");
 
 $cars = array($porsche, $ford, $lexus, $mercedes, $chevy, $geo);
 
@@ -76,10 +88,12 @@ foreach ($cars as $car) {
                 $make_model = $car->getMakeModel();
                 $price = $car->getPrice();
                 $miles = $car->getMiles();
+                $image_url = $car->getImageUrl();
                 echo "<li> $make_model </li>";
                 echo "<ul>";
                     echo "<li> $$price </li>";
                     echo "<li> Miles: $miles </li>";
+                    echo "<img src='$image_url' alt='car image'/>";
                 echo "</ul>";
             }
         ?>
